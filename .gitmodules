@@ -1,0 +1,3 @@
+[submodule "awesome-ansible"]
+	path = awesome-ansible
+	url = https://github.com/zhengdechang/awesome-ansible.git
