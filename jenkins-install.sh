@@ -22,7 +22,13 @@ sudo apt-get update
 echo "Installing Ansible..."
 sudo apt-get install -y ansible git sshpass
 
-cp id_rsa /srv/
+# 检查 id_rsa 文件是否存在
+if [ -f id_rsa ]; then
+    echo "id_rsa file found. Copying to /srv/"
+    cp id_rsa /srv/
+else
+    echo "id_rsa file not found. Skipping copy."
+fi
 
 if ansible --version; then
    git clone https://github.com/zhengdechang/awesome-jenkins.git --recursive 
