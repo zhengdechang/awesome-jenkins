@@ -25,11 +25,12 @@ Awesome-Jenkins 提供了两种 Jenkins 任务备份方式：
 
 1. **默认备份**：每天自动下载任务配置文件到 `/srv` 文件夹。
 2. **Git 备份**：如果提供 `GIT_REPO` 环境变量和 `id_rsa` 文件（放在脚本执行目录下），每天会自动下载任务配置，并提交到相应的 Git 仓库。
-   ```shell
-   ## 提交设置好id_rsa文件，命令：ssh-keygen -t rsa
-   export GIT_REPO=git@github.com:zhengdechang/awesome-jenkins.git
-   bash <(curl -sSL https://raw.githubusercontent.com/zhengdechang/awesome-jenkins/main/jenkins-install.sh)
-   ```
+   
+```shell
+## 提交设置好id_rsa文件，命令：ssh-keygen -t rsa
+export GIT_REPO=git@github.com:zhengdechang/awesome-jenkins.git
+bash <(curl -sSL https://raw.githubusercontent.com/zhengdechang/awesome-jenkins/main/jenkins-install.sh)
+```
 
 ## 添加 SSH KEYS(github)
 
@@ -51,7 +52,8 @@ cat ~/.ssh/id_rsa.pub
 - 点击 New SSH key
 - title 随便写
 - key 复制 id_rsa.pub 文件内容
-  ![github](img/20240110-222129.jpg)
+
+![github](img/20240110-222129.jpg)
 
 ## English
 
@@ -80,11 +82,12 @@ Awesome-Jenkins provides two backup methods for Jenkins jobs:
 
 1. **Default Backup**: Automatically downloads job configuration files to the `/srv` folder every day.
 2. **Git Backup**: If the `GIT_REPO` environment variable and `id_rsa` file (placed in the script execution directory) are provided, it will automatically download job configurations and commit them to the corresponding Git repository every day.
-   ```shell
-   ## Set the id_rsa file, command: ssh-keygen -t rsa
-   export GIT_REPO=git@github.com:zhengdechang/awesome-jenkins.git
-   bash <(curl -sSL https://raw.githubusercontent.com/zhengdechang/awesome-jenkins/main/jenkins-install.sh)
-   ```
+
+```shell
+## Set the id_rsa file, command: ssh-keygen -t rsa
+export GIT_REPO=git@github.com:zhengdechang/awesome-jenkins.git
+bash <(curl -sSL https://raw.githubusercontent.com/zhengdechang/awesome-jenkins/main/jenkins-install.sh)
+```
 
 ## Adding SSH KEYS (github)
 
@@ -106,4 +109,5 @@ cat ~/.ssh/id_rsa.pub
 - Click on New SSH key
 - Enter any title
 - Copy the content of the id_rsa.pub file into the key field
-  ![github](img/20240110-222129.jpg)
+
+![github](img/20240110-222129.jpg)
