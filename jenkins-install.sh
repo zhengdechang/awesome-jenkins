@@ -1,6 +1,8 @@
 #!/bin/bash
 
-REPO="git@github.com:zhengdechang/awesome-jenkins.git"
+if [[ -n $GIT_REPO ]]; then
+  REPO=$GIT_REPO
+fi
 
 # 读取用户名
 echo -n "Enter local username: "
@@ -31,10 +33,16 @@ else
 fi
 
 if ansible --version; then
-   git clone https://github.com/zhengdechang/awesome-jenkins.git --recursive 
-   cd awesome-jenkins/awesome-ansible
-   ansible-playbook -i environment/hosts setup_jenkins.yml -v --user=jancsitech  --connection=ssh \
-   --ssh-extra-args="-o StrictHostKeyChecking=no" -e "ansible_ssh_user=${username} ansible_ssh_pass=${password} ansible_become_pass=${password} github_save_repo=${REPO}"
+    git clone https://github.com/zhengdechang/awesome-jenkins.git --recursive 
+    cd awesome-jenkins/awesome-ansible
+    if [[ -n $REPO ]]; then
+        ansible-playbook -i environment/hosts setup_jenkins.yml -v --user=jancsitech  --connection=ssh \
+        --ssh-extra-args="-o StrictHostKeyChecking=no" -e "ansible_ssh_user=${username} ansible_ssh_pass=${password} ansible_become_pass=${password} github_save_repo=${REPO}"
+    else
+        ansible-playbook -i environment/hosts setup_jenkins.yml -v --user=jancsitech  --connection=ssh \
+        --ssh-extra-args="-o StrictHostKeyChecking=no" -e "ansible_ssh_user=${username} ansible_ssh_pass=${password} ansible_become_pass=${password}"
+fi
+
    
 else
     echo "Ansible installation failed."
